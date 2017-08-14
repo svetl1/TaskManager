@@ -18,19 +18,19 @@ namespace DataAccess.Repository
         public static TaskRepository GetTaskRepository()
         {
             string path = ConfigurationManager.AppSettings["dataPath"];
-            return new TaskRepository(path + @"\contacts.txt");
+            return new TaskRepository(path + @"\tasks.txt");
         }
 
         public static CommentRepository GetCommentRepository()
         {
             string path = ConfigurationManager.AppSettings["dataPath"];
-            return new CommentRepository(path + @"\phones.txt");
+            return new CommentRepository(path + @"\comments.txt");
         }
 
         public static LogRepository GetLogRepository()
         {
             string path = ConfigurationManager.AppSettings["dataPath"];
-            return new LogRepository(path + @"\phones.txt");
+            return new LogRepository(path + @"\logs.txt");
         }
     }
 }
