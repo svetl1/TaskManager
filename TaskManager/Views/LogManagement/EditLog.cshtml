@@ -7,14 +7,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Task Manager</title>
+    <title>Task Management</title>
 </head>
 <body>
     <div>
         <table>
             <tr>
                 <td>
-                    <h1 style="font-size:26px;">Edit User</h1>
+                    <h1 style="font-size:26px;">Edit Log</h1>
                 </td>
             </tr>
             <tr>
@@ -36,31 +36,20 @@
             <tr>
                 <td>
                     @{
-                        User user = (User)ViewData["user"];
+                        Log log = (Log)ViewData["phone"];
                     }
-                    <form action="/UserManagement/EditUser" method="post">
-                        <input type="hidden" name="Id" value="@user.ID" />
+                    <form action="/PhonesManager/EditPhone" method="post">
+                        <input type="hidden" name="ID" value="@log.ID" />
+                        <input type="hidden" name="TaskID" value="@log.TaskID" />
                         <fieldset>
-                            <legend>Edit User</legend>
+                            <legend>Edit Task</legend>
                             <table>
                                 <tr>
-                                    <td>First Name:</td>
-                                    <td><input type="text" name="FirstName" value="@user.FirstName" /></td>
+                                    <td>Log:</td>
+                                    <td><input type="text" name="LogHours" value="@log.Hours" /></td>
                                 </tr>
                                 <tr>
-                                    <td>Last Name:</td>
-                                    <td><input type="text" name="LastName" value="@user.LastName" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Username:</td>
-                                    <td><input type="text" name="Username" value="@user.Username" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Password:</td>
-                                    <td><input type="password" name="Password" value="@user.password" /></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><input type="submit" value="Save" />&nbsp;<a href="/UserManagement/Index">Cancel</a></td>
+                                    <td colspan="2"><input type="submit" value="Save" />&nbsp;<a href="/TaskManagement/TaskDetails?id=@log.TaskID">Cancel</a></td>
                                 </tr>
                             </table>
                         </fieldset>

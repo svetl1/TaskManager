@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Task Manager</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <td>
+                    <h1 style="font-size:26px;">Task Manager</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="list-style:none;">
+                        <li style="float:left;width:150px;text-decoration:none; color:black;"><a href="/TaskManagement/Index">Manage Tasks</a></li>
+                        <li style="float: left; width: 150px; text-decoration:none; color:black;"><a href="/UserManagement/Index">Manage Users</a></li>
+                        @if
+            (TaskManager.Models.AuthenticationManager.LoggedUser==null)
+                        {
+                            <li style=" float: left;width:150px;text-decoration:none;color:black;"><a href="/Home/Login">Login</a></li>
+                        }
+                        else
+                        {
+                            <li style="float:left; width: 150px; text-decoration:none; color:black;"><a href="/Home/Logout">Logout</a></li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Welcome to the Task Management Application.</p>
+                    <p>You can navigate to the different sections of the website using the menu above.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

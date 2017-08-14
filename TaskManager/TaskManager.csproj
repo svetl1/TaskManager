@@ -93,7 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommentManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogManagementController.cs" />
     <Compile Include="Controllers\TaskManagementController.cs" />
     <Compile Include="Controllers\UserMangementController.cs" />
     <Compile Include="Global.asax.cs">
@@ -105,9 +107,15 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\UserManagement\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\UserManagement\EditUser.cshtml" />
+    <Content Include="Views\TaskManagement\Index.cshtml" />
+    <Content Include="Views\TaskManagement\TaskDetails.cshtml" />
+    <Content Include="Views\TaskManagement\EditTask.cshtml" />
+    <Content Include="Views\LogManagement\EditLog.cshtml" />
+    <Content Include="Views\CommentManagement\EditComment.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -117,8 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\TaskManagement\" />
-    <Folder Include="Views\UserMangement\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

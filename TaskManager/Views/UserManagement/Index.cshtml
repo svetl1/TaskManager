@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -8,10 +7,57 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Task Management</title>
 </head>
 <body>
-    <div> 
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <h1 style="font-size:26px;">Manage Users</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="list-style:none;">
+                        <li style="float:left; width:150px; text-decoration:none; color:black;"><a href="/TaskManagement/Index">Manage Tasks</a></li>
+                        <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/UserManagement/Index">Manage Users</a></li>
+                        @if (TaskManager.Models.AuthenticationManager.LoggedUser == null)
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Login">Login</a></li>
+                        }
+                        else
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Logout">Logout</a></li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/UserManagement/EditUser">Create New</a>
+                    <table>
+                        <tr>
+                            <td>Username</td>
+                            <td>Full Name</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        @foreach (User user in (List<User>)ViewData["users"])
+                        {
+                            var editLink = "/UserManagement/EditUser?id=" + user.Id;
+                            var deleteLink = "/UserManagement/DeleteUser?id=" + user.Id;
+                            <tr>
+                                <td>@user.Username</td>
+                                <td>@user.FirstName @user.LastName</td>
+                                <td><a href="@editLink">edit</a></td>
+                                <td><a href="@deleteLink">delete</a></td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
